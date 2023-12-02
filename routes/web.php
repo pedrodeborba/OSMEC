@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard;
 
-Route::get('/', function () {
-    return redirect()->intended('/admin/login');
-});
+Route::redirect('/', '/admin/login');
 
 Route::get('/admin/login', [AuthController::class, 'getLogin']);
 
