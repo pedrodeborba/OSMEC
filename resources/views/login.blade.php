@@ -10,12 +10,26 @@
             <img src="{{asset('img/osmec.png')}}" alt="Logo">
         </div>
         <div class="col-lg-6" id="inputs">
-            <input id="input" type="email" placeholder="Email">
-            <input id="input" type="password" placeholder="Senha">
-            <a href="/dashboard">
-                <button id="send">Entrar</button>
-            </a>
+            <form method="post" action="/admin/login">
+                @csrf <!-- Adicione o token CSRF para segurança -->
+
+                <input id="input" type="email" name="email" placeholder="Email" required>
+
+                <br>
+
+                <input id="input" type="password" name="password" placeholder="Senha" required>
+
+                <br>
+
+                <button id="send" type="submit">Login</button>
+            </form>
+            @if($errors->any())
+            <div style="color: red;">
+                {{ $errors->first() }}
+            </div>
+            @endif
         </div>
+
     </div>
 </div>
 

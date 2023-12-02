@@ -3,15 +3,15 @@
 use Illuminate\Support\Facades\Route;
 
 // Controllers
-use App\Http\Controllers\Auth;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard;
 
 Route::get('/', function () {
-    return redirect()->intended('login');
+    return redirect()->intended('/admin/login');
 });
 
-Route::get('/login', [Auth::class, 'getLogin']);
+Route::get('/admin/login', [AuthController::class, 'getLogin']);
 
-// Route::post('/login', [Auth::class, 'login']);
+Route::post('/admin/login', [AuthController::class, 'login']);
 
-Route::get('/dashboard', [Dashboard::class, 'getDashboard']);
+Route::get('/admin/dashboard', [Dashboard::class, 'getDashboard']);

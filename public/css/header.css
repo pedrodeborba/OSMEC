@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+html{
+    height: 500vh;
+    background-color: #000;
+}
+
+header{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .5s;
+    background-color: #fff;
+}
+
+#logo{
+    width: 60px;
+    cursor: pointer;
+}
+
+.btn-profile button{
+    width: 100px;
+    border: 0;
+    background-color: #fff;
+    cursor: pointer;
+    transition: .2s;
+}
