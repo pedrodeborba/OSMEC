@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function getLogin()
     {
-        return view('login');
+        return view('main.auth.login');
     }
     
     public function logout(Request $request)
@@ -46,12 +46,12 @@ class AuthController extends Controller
             }
             // Verifica se o funcionário está inativo
             elseif (!$this->isMechanicAtivo($user)) {
-                return redirect('/admin/login')->withErrors(['error' => 'Conta desativada. Verifique seu e-mail e senha com o administrador.']);
+                return redirect('/login')->withErrors(['error' => 'Conta desativada. Verifique seu e-mail e senha com o administrador.']);
             }
         }            
     
         // Se chegou aqui, são credenciais inválidas
-        return redirect('/admin/login')->withErrors(['login' => 'Credenciais inválidas. Verifique seu e-mail e senha.']);
+        return redirect('/login')->withErrors(['login' => 'Credenciais inválidas. Verifique seu e-mail e senha.']);
     }    
 
     /**
@@ -107,13 +107,13 @@ class AuthController extends Controller
     private function redirectToDashboard($profile)
     {
         if ($profile === 'admin') {
-            return redirect('/admin/dashboard');
+            return redirect('/dashboard');
         } elseif ($profile === 'mechanic') {
-            return redirect('/admin/dashboard');
+            return redirect('/dashboard');
         }
 
         // Redirecionamento padrão ou tratamento de erro se necessário
-        return redirect('/admin/login')->with('error', 'Perfil não reconhecido.');
+        return redirect('/login')->with('error', 'Perfil não reconhecido.');
     }
 
     /**

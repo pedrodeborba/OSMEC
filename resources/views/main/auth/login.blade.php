@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.auth.login')
 
 @section('title', 'Login')
 
@@ -10,8 +10,8 @@
             <img src="{{asset('img/osmec.png')}}" alt="Logo">
         </div>
         <div class="col-lg-6" id="inputs">
-            <form method="post" action="/admin/login">
-                @csrf <!-- Adicione o token CSRF para segurança -->
+            <form method="post" action="/login">
+                @csrf
 
                 <input id="input" type="email" name="email" placeholder="Email" required>
 

@@ -5,11 +5,18 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\PartController;
 
-Route::redirect('/', '/admin/login');
+Route::redirect('/', '/login');
 
-Route::get('/admin/login', [AuthController::class, 'getLogin']);
+Route::get('/login', [AuthController::class, 'getLogin']);
 
-Route::post('/admin/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/admin/dashboard', [Dashboard::class, 'getDashboard']);
+Route::get('/dashboard', [Dashboard::class, 'getDashboard']);
+
+Route::get('/parts/add', [PartController::class, 'registerPart']);
+
+Route::get('/parts', [PartController::class, 'showPart']);
+
+Route::post('/parts', [PartController::class, 'addPart']);
