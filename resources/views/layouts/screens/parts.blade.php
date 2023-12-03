@@ -13,7 +13,7 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/parts.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/RandS.css') }}">
 </head>
 <body>
     @include('main.components.header')

@@ -13,7 +13,6 @@ class Mechanic extends Model
     protected $primaryKey = 'person_id_person';
     public $incrementing = false;
 
-    // Campos adicionais
     protected $fillable = [
         'status',
         'especialidade',

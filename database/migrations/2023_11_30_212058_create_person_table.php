@@ -12,8 +12,11 @@ class CreatePersonTable extends Migration
             $table->id('id_person');
             $table->string('name', 155);
             $table->string('email', 255)->unique();
-            $table->string('password')->nullable()->default(bcrypt(''));
+            $table->string('password', 50)->nullable();
             $table->string('profile', 45);
+            $table->string('rg', 10);
+            $table->string('cpf', 14);
+            $table->string('phone', 15)->nullable();
             $table->timestamps();
         });
     }

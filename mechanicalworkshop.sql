@@ -21,6 +21,10 @@ CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`person` (
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `profile` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `rg` VARCHAR(10) NOT NULL,
+  `phone` VARCHAR(15) NOT NULL,
+
   PRIMARY KEY (`id_person`),
   UNIQUE INDEX `idperson_UNIQUE` (`id_person` ASC)
 ) ENGINE = InnoDB;
@@ -82,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`client` (
   `cpf` VARCHAR(11) NOT NULL,
   `rg` VARCHAR(10) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
+  `phone` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id_client`),
   UNIQUE INDEX `idclient_UNIQUE` (`id_client` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
@@ -168,34 +173,29 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`service_order` (
   `id_service_order` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `part_id_part` INT UNSIGNED NOT NULL,
-  `vehicle_id_vehicle` INT UNSIGNED NOT NULL,
-  `client_id_client` INT UNSIGNED NOT NULL,
   `entry_date` DATETIME NOT NULL,
   `exit_date` DATETIME NOT NULL,
   `defect_description` VARCHAR(255) NOT NULL,
-  `mechanic_team_id_mechanic_team` INT UNSIGNED NOT NULL,
+  `vehicle_id_vehicle_fk` INT UNSIGNED NOT NULL,
+  `client_id_client_fk` INT UNSIGNED NOT NULL,
+  `admin_person_id_person_fk` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_service_order`),
-  UNIQUE INDEX `idserviceorder_UNIQUE` (`id_service_order` ASC),
-  INDEX `fk_service_order_vehicle1_idx` (`vehicle_id_vehicle` ASC),
-  INDEX `fk_service_order_client1_idx` (`client_id_client` ASC),
-  INDEX `fk_service_order_mechanic_team1_idx` (`mechanic_team_id_mechanic_team` ASC),
+  UNIQUE INDEX `id_service_order_UNIQUE` (`id_service_order` ASC) VISIBLE,
+  INDEX `fk_service_order_vehicle1_idx` (`vehicle_id_vehicle_fk` ASC) VISIBLE,
+  INDEX `fk_service_order_client1_idx` (`client_id_client_fk` ASC) VISIBLE,
+  INDEX `fk_service_order_admin1_idx` (`admin_person_id_person_fk` ASC) VISIBLE,
   CONSTRAINT `fk_service_order_vehicle1`
-    FOREIGN KEY (`vehicle_id_vehicle`)
-    REFERENCES `mechanicalworkshop`.`vehicle` (`id_vehicle`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    FOREIGN KEY (`vehicle_id_vehicle_fk`)
+    REFERENCES `mechanicalworkshop`.`vehicle` (`id_vehicle`),
   CONSTRAINT `fk_service_order_client1`
-    FOREIGN KEY (`client_id_client`)
-    REFERENCES `mechanicalworkshop`.`client` (`id_client`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_service_order_mechanic_team1`
-    FOREIGN KEY (`mechanic_team_id_mechanic_team`)
-    REFERENCES `mechanicalworkshop`.`mechanic_team` (`id_mechanic_team`)
+    FOREIGN KEY (`client_id_client_fk`)
+    REFERENCES `mechanicalworkshop`.`client` (`id_client`),
+  CONSTRAINT `fk_service_order_admin1`
+    FOREIGN KEY (`admin_person_id_person_fk`)
+    REFERENCES `mechanicalworkshop`.`admin` (`person_id_person`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mechanicalworkshop`.`part_service_order`

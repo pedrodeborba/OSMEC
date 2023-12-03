@@ -1,6 +1,6 @@
-@extends('layouts.registers.parts')
+@extends('layouts.registers.mechanics')
 
-@section('title', 'Parts')
+@section('title', 'Mechanics')
 
 @section('content')
 
@@ -12,7 +12,7 @@
                 <form method="post" action="/parts">
                     @csrf
 
-                    Adicionar Peça
+                    Adicionar Mecânicos
 
                     <input id="input" type="text" name="name" placeholder="Nome" required>
 

@@ -1,6 +1,6 @@
-@extends('layouts.screens.parts')
+@extends('layouts.screens.mechanics')
 
-@section('title', 'Parts')
+@section('title', 'Mechanics')
 
 @section('content')
 
@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <a href="/parts/add">
-                    <button type="button" class="btn btn-primary btn-lg">Adicionar Peças</button>
+                <a href="/mechanics/add">
+                    <button type="button" class="btn btn-primary btn-lg">Adicionar mecânico</button>
                 </a>
             </div>
             <div class="col-lg-2"></div>

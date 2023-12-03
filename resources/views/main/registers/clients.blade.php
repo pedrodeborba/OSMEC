@@ -1,6 +1,6 @@
-@extends('layouts.registers.parts')
+@extends('layouts.registers.clients')
 
-@section('title', 'Parts')
+@section('title', 'Clients')
 
 @section('content')
 
@@ -9,34 +9,35 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <form method="post" action="/parts">
+                <form method="post" action="/clients">
                     @csrf
 
-                    Adicionar Peça
+                    Adicionar Cliente
 
                     <input id="input" type="text" name="name" placeholder="Nome" required>
 
                     <br>
 
-                    <input id="input" type="text" name="type" placeholder="Tipo" required>
+                    <input id="input" type="email" name="email" placeholder="Email" required>
 
                     <br>
 
-                    <input id="input" type="text" name="manufacturer" placeholder="Fabricante" required>
+                    <input id="input" type="text" name="cpf" placeholder="CPF" required>
 
                     <br>
 
-                    <input id="input" type="number" name="quantity" placeholder="Quantidade" required>
+                    <input id="input" type="text" name="rg" placeholder="RG" required>
 
                     <br>
 
-                    <input id="input" type="number" name="cost" placeholder="Custo" required>
+                    <input id="input" type="text" name="address" placeholder="Endereço" required>
 
                     <br>
 
-                    <input id="input" type="number" name="manufacture_year" placeholder="Ano fabricação" required>
+                    <input id="input" type="number" name="phone" placeholder="Telefone" required>
 
                     <button id="send" type="submit">Adicionar</button>
+
                 </form>
                 @if($errors->any())
                 <div style="color: red;">
