@@ -12,7 +12,7 @@ class CreatePartTable extends Migration
         Schema::create('part', function (Blueprint $table) {
             $table->id('id_part');
             $table->string('name', 155);
-            $table->string('type', 155);
+            $table->text('description');
             $table->string('manufacturer', 155);
             $table->string('quantity', 100);
             $table->string('cost', 100);

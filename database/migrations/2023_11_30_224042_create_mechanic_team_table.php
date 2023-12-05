@@ -12,7 +12,7 @@ class CreateMechanicTeamTable extends Migration
         Schema::create('mechanic_team', function (Blueprint $table) {
             $table->id('id_mechanic_team');
             $table->string('name', 155);
-            $table->string('function', 155);
+            $table->text('function');
             $table->unsignedBigInteger('mechanic_person_id_person')->constrained('funcionario')->onDelete('cascade');
             $table->timestamps();
             $table->unique('id_mechanic_team');
