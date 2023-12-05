@@ -13,7 +13,7 @@ class Part extends Model
 
     protected $fillable = [
         'name',
-        'type',
+        'description',
         'manufacturer',
         'quantity',
         'cost',

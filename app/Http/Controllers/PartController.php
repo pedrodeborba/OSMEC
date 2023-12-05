@@ -27,7 +27,7 @@ class PartController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'type' => 'required',
+            'description' => 'required',
             'manufacturer' => 'required',
             'quantity' => 'required|numeric',
             'cost' => 'required|numeric',
@@ -36,7 +36,7 @@ class PartController extends Controller
 
         Part::create([
             'name' => $request->input('name'),
-            'type' => $request->input('type'),
+            'description' => $request->input('description'),
             'manufacturer' => $request->input('manufacturer'),
             'quantity' => $request->input('quantity'),
             'cost' => $request->input('cost'),

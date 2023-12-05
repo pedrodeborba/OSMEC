@@ -14,9 +14,9 @@ class CreatePartTable extends Migration
             $table->string('name', 155);
             $table->text('description');
             $table->string('manufacturer', 155);
-            $table->string('quantity', 100);
-            $table->string('cost', 100);
-            $table->string('manufacture_year', 100);
+            $table->integer('quantity');
+            $table->float('cost');
+            $table->integer('manufacture_year');
             $table->timestamps();
             $table->unique('id_part');
         });

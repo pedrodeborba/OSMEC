@@ -13,7 +13,7 @@ class CreateMechanicTable extends Migration
             $table->unsignedBigInteger('person_id_person');
             $table->foreign('person_id_person')->references('id_person')->on('person')->onDelete('cascade');
             $table->tinyInteger('status');
-            $table->string('specialty', 100);
+            $table->text('specialty');
             $table->primary('person_id_person');
         });
     }

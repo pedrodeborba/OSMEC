@@ -31,7 +31,7 @@ class MechanicController extends Controller
             'email' => 'required|email|unique:person,email',
             'cpf' => 'required|unique:person,cpf',
             'rg' => 'required|unique:person,rg',
-            'especialidade' => 'required',
+            'specialty' => 'required',
             'phone' => 'required',
         ], [
                 'email.unique' => 'O e-mail já está em uso.',
@@ -43,7 +43,8 @@ class MechanicController extends Controller
         $person = Person::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'profile' => 'funcionario', 
+            'profile' => 'mechanic', 
+            // 'password' => bcrypt('12345678'),
             'rg' => $request->input('rg'), 
             'cpf' => $request->input('cpf'),
             'phone' => $request->input('phone'),
@@ -54,7 +55,7 @@ class MechanicController extends Controller
             Mechanic::create([
                 'person_id_person' => $person->id,
                 'status' => 1,
-                'especialidade' => $request->input('especialidade'),
+                'specialty' => $request->input('specialty'),
             ]);
 
             return view('main.registers.mechanics')->with('success', 'Funcionário criado com sucesso.');

@@ -15,7 +15,7 @@ class Mechanic extends Model
 
     protected $fillable = [
         'status',
-        'especialidade',
+        'specialty',
     ];
 
     public function person()

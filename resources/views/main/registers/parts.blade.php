@@ -18,7 +18,7 @@
 
                     <br>
 
-                    <input id="input" type="text" name="type" placeholder="Tipo" required>
+                    <input id="input" type="text" name="description" placeholder="Descrição" required>
 
                     <br>
 
