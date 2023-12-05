@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MechanicController;
+use App\Http\Controllers\VehicleController;
 
 // Default
 
@@ -46,3 +47,11 @@ Route::get('/mechanics/add', [MechanicController::class, 'registerMechanic']);
 Route::get('/mechanics', [MechanicController::class, 'showMechanic']);
 
 Route::post('/mechanics', [MechanicController::class, 'addMechanic']);
+
+// Vehicles
+
+Route::get('/vehicles/add', [VehicleController::class, 'registerVehicle']);
+
+Route::get('/vehicles', [VehicleController::class, 'showVehicle']);
+
+Route::post('/vehicles', [VehicleController::class, 'addVehicle']);

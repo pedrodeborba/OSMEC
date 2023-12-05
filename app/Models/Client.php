@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
-{
+class Client extends Model {
     use HasFactory;
     public $timestamps = false;
     protected $table = 'client';
@@ -20,7 +19,7 @@ class Client extends Model
         'phone',
     ];
 
-    //  public function carro(){
-    //     return $this->hasOne(Carro::class, 'cliente_id_cliente');
-    // }
+    public function vehicle() {
+        return $this->hasOne(Vehicle::class, 'client_id_client');
+    }
 }

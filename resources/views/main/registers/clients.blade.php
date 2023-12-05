@@ -34,7 +34,7 @@
 
                     <br>
 
-                    <input id="input" type="number" name="phone" placeholder="Telefone" required>
+                    <input id="input" type="text" name="phone" placeholder="Telefone" required>
 
                     <button id="send" type="submit">Adicionar</button>
 

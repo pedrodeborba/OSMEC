@@ -13,7 +13,7 @@ class CreatePersonTable extends Migration
             $table->id('id_person');
             $table->string('name', 155);
             $table->string('email', 255);
-            $table->string('password', 50);
+            $table->string('password', 255);
             $table->string('profile', 45);
             $table->string('cpf', 14);
             $table->string('rg', 10);

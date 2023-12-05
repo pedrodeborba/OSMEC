@@ -12,6 +12,7 @@ class Person extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public $timestamps = false;
     protected $table = 'person';
 
     protected $fillable = [
@@ -19,9 +20,24 @@ class Person extends Authenticatable
         'email',
         'password',
         'profile',
+        'rg',
+        'cpf',
+        'phone'
     ];
 
-    protected $hidden = [
-        'password',
-    ];
+    public function getJWTIdentifier(){
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims(){
+        return [];
+    }
+
+    public function admin(){
+        return $this->hasOne(Admin::class, 'pessoa_id_pessoa');
+    }
+
+    public function funcionario(){
+        return $this->hasOne(Mechanic::class, 'pessoa_id_pessoa');
+    }
 }

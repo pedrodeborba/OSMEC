@@ -2,29 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Mechanic;
 use App\Models\Person;
 
-class MechanicController extends Controller
-{
-    public function index()
-    {
+class MechanicController extends Controller {
+    public function index() {
         $mechanics = Mechanic::all();
         return view('main.registers.mechanics', ['mechanics' => $mechanics]);
     }
 
-    public function showMechanic()
-    {
+    public function showMechanic() {
         return view('main.screens.mechanics');
     }
 
-    public function registerMechanic()
-    {
+    public function registerMechanic() {
         return view('main.registers.mechanics');
     }
 
-    public function addMechanic(Request $request){
+    public function addMechanic(Request $request) {
 
         $request->validate([
             'name' => 'required',
@@ -43,8 +40,8 @@ class MechanicController extends Controller
         $person = Person::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'password' => bcrypt('12345678'),
             'profile' => 'mechanic', 
-            // 'password' => bcrypt('12345678'),
             'rg' => $request->input('rg'), 
             'cpf' => $request->input('cpf'),
             'phone' => $request->input('phone'),
@@ -58,9 +55,10 @@ class MechanicController extends Controller
                 'specialty' => $request->input('specialty'),
             ]);
 
-            return view('main.registers.mechanics')->with('success', 'Funcionário criado com sucesso.');
+            return view('main.screens.mechanics')->with('success', 'Mecânico criado com sucesso.');
         } 
 
-        return redirect()->route('main.registers.mechanics')->with('error', 'Erro ao criar funcionário. ID da person nulo.');
+        return redirect()->route('main.registers.mechanics')->with('error', 'Erro ao criar mecânico!');
     }
+
 }
