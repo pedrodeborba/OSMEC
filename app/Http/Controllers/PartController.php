@@ -38,6 +38,7 @@ class PartController extends Controller
             'manufacture_year' => $request->input('manufacture_year'),
         ]);
 
-        return view('main.screens.parts')->with('success', 'Peça adicionada!');
+        $parts = Part::all();
+        return view('main.screens.parts', ['parts' => $parts])->with('success', 'Peça adicionada!');
     }
 }

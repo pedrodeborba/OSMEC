@@ -19,7 +19,7 @@ Route::redirect('/', '/login');
 
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login.create');
 
-Route::post('/login', [AuthController::class, 'login'])->name('send.send');
+Route::post('/login', [AuthController::class, 'login'])->name('login.send');
 
 // Dashboard
 
@@ -27,7 +27,7 @@ Route::get('/dashboard', [Dashboard::class, 'getDashboard'])->name('dashboard.cr
 
 // Parts
 
-Route::get('/parts', [PartController::class, 'index'])->name('parts.show');
+Route::get('/parts', [PartController::class, 'index'])->name('parts.index');
 
 Route::get('/parts/add', [PartController::class, 'create'])->name('parts.create');
 
@@ -35,7 +35,7 @@ Route::post('/parts/add', [PartController::class, 'send'])->name('parts.send');
 
 // Clients
 
-Route::get('/clients', [ClientController::class, 'index'])->name('client.show');
+Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
 
 Route::get('/clients/add', [ClientController::class, 'create'])->name('clients.create');
 
@@ -49,7 +49,7 @@ Route::get('/clients/delete/{id}', [ClientController::class, 'delete'])->name('c
 
 // Mechanics
 
-Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.show');
+Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.index');
 
 Route::get('/mechanics/add', [MechanicController::class, 'create'])->name('mechanics.create');
 
@@ -57,7 +57,7 @@ Route::post('/mechanics/add', [MechanicController::class, 'send'])->name('mechan
 
 // Team
 
-Route::get('/teams', [TeamController::class, 'index'])->name('team.show');
+Route::get('/teams', [TeamController::class, 'index'])->name('team.index');
 
 Route::get('/teams/add', [TeamController::class, 'create'])->name('team.create');
 
@@ -65,7 +65,7 @@ Route::post('/teams/add', [TeamController::class, 'send'])->name('teams.send');
 
 // Vehicles
 
-Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.show');
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
 
 Route::get('/vehicles/add', [VehicleController::class, 'create'])->name('vehicles.create');
 
