@@ -54,7 +54,7 @@ class MechanicController extends Controller {
             ]);
 
             $mechanics = (new Mechanic())->getAllMechanics();
-            return view('main.screens.mechanics', ['mechanics' => $mechanics])->with('success', 'Mecânico criado com sucesso.');
+            return redirect()->route('mechanics.index')->with(['mechanics' => $mechanics, 'success' => 'Mecânico adicionado com sucesso.']);
         } 
 
         return redirect()->route('main.registers.mechanics')->with('error', 'Erro ao criar mecânico!');

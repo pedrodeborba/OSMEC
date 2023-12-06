@@ -42,7 +42,7 @@ class ClientController extends Controller {
         ]);
 
         $clients = Client::all();
-        return view('main.screens.clients',['clients' => $clients])->with('success', 'Cliente criado com sucesso!');
+        return redirect()->route('clients.index')->with(['clients' => $clients, 'success' => 'Cliente adicionado com sucesso.']);
     }
 
     // public function edit($id) {

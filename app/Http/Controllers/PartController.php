@@ -39,6 +39,6 @@ class PartController extends Controller
         ]);
 
         $parts = Part::all();
-        return view('main.screens.parts', ['parts' => $parts])->with('success', 'Peça adicionada!');
+        return redirect()->route('parts.index')->with(['parts' => $parts, 'success' => 'Peça adicionada com sucesso.']);
     }
 }

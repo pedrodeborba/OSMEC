@@ -31,15 +31,15 @@ Route::get('/parts', [PartController::class, 'index'])->name('parts.index');
 
 Route::get('/parts/add', [PartController::class, 'create'])->name('parts.create');
 
-Route::post('/parts/add', [PartController::class, 'send'])->name('parts.send');
+Route::post('/parts/send', [PartController::class, 'send'])->name('parts.send');
 
 // Clients
 
-Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
 Route::get('/clients/add', [ClientController::class, 'create'])->name('clients.create');
 
-Route::post('/clients/add', [ClientController::class, 'send'])->name('clients.send');
+Route::post('/clients/send', [ClientController::class, 'send'])->name('clients.send');
 
 Route::get('/clients/edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
 
@@ -53,7 +53,7 @@ Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.
 
 Route::get('/mechanics/add', [MechanicController::class, 'create'])->name('mechanics.create');
 
-Route::post('/mechanics/add', [MechanicController::class, 'send'])->name('mechanics.send');
+Route::post('/mechanics/send', [MechanicController::class, 'send'])->name('mechanics.send');
 
 // Team
 
@@ -61,7 +61,7 @@ Route::get('/teams', [TeamController::class, 'index'])->name('team.index');
 
 Route::get('/teams/add', [TeamController::class, 'create'])->name('team.create');
 
-Route::post('/teams/add', [TeamController::class, 'send'])->name('teams.send');
+Route::post('/teams/send', [TeamController::class, 'send'])->name('teams.send');
 
 // Vehicles
 
@@ -69,5 +69,5 @@ Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.ind
 
 Route::get('/vehicles/add', [VehicleController::class, 'create'])->name('vehicles.create');
 
-Route::post('/vehicles/add', [VehicleController::class, 'send'])->name('vehicles.send');
+Route::post('/vehicles/send', [VehicleController::class, 'send'])->name('vehicles.send');
 

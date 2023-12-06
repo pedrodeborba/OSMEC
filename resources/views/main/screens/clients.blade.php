@@ -1,6 +1,6 @@
 @extends('layouts.screens.clients')
 
-@section('title', 'Clients')
+@section('title', 'Clientes')
 
 @section('content')
 

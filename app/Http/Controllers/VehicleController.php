@@ -21,6 +21,8 @@ class VehicleController extends Controller {
 
     public function send(Request $request) {
 
+        redirect()->route('vehicles.index');
+
         $request->validate([
             'name' => 'required|string|max:255',
             'color' => 'required|string|max:255',
@@ -41,9 +43,9 @@ class VehicleController extends Controller {
             'client_id_client' => $client->id_client,
         ]);
 
-
         if($veiculo) {
-            return view('main.registers.vehicles')->with('success', 'Veículo criado com sucesso.');
+            $vehicles = (new Vehicle())->getAll();
+            return redirect()->route('vehicles.index')->with(['vehicles' => $vehicles, 'success' => 'Veículo criado com sucesso.']);
         } else {
             return view('main.registers.vehicles')->with('error', 'Falha ao associar o veículo ao cliente.');
         }

@@ -1,6 +1,6 @@
 @extends('layouts.screens.parts')
 
-@section('title', 'Parts')
+@section('title', 'Peças')
 
 @section('content')
 

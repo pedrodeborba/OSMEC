@@ -37,9 +37,10 @@ class TeamController extends Controller
         ]);
 
         if ($team) {
-            return view('main.screens.teams')->with('success', 'Veículo criado com sucesso.');
+            $teams = (new Team())->getAll();
+            return redirect()->route('teams.index')->with(['teams' => $teams, 'success' => 'Equipe criada com sucesso.']);
         } else {
-            return view('main.registers.teams')->with('error', 'Falha ao criar a team.');
+            return view('main.registers.teams')->with('error', 'Falha ao criar a equipe!');
         }
     }
 }
