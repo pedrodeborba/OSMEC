@@ -7,11 +7,11 @@ use App\Models\Part;
 
 class PartController extends Controller
 {
-    public function index()
-    {
-        $parts = Part::all();
-        return view('main.registers.parts', ['parts' => $parts]);
-    }
+    // public function index()
+    // {
+    //     $parts = Part::all();
+    //     return view('main.registers.parts', ['parts' => $parts]);
+    // }
 
     public function showPart()
     {

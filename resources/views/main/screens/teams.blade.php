@@ -1,6 +1,6 @@
-@extends('layouts.screens.vehicles')
+@extends('layouts.screens.teams')
 
-@section('title', 'Vehicles')
+@section('title', 'Teams')
 
 @section('content')
 
@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <a href="/vehicles/add">
-                    <button type="button" class="btn btn-primary btn-lg">Adicionar Veículos</button>
+                <a href="/teams/add">
+                    <button type="button" class="btn btn-primary btn-lg">Adicionar Equipes</button>
                 </a>
             </div>
             <div class="col-lg-2"></div>

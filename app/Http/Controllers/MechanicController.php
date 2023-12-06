@@ -10,18 +10,15 @@ use App\Models\Person;
 class MechanicController extends Controller {
     public function index() {
         $mechanics = Mechanic::all();
-        return view('main.registers.mechanics', ['mechanics' => $mechanics]);
+        return view('main.screens.mechanics', ['mechanics' => $mechanics]);
     }
 
-    public function showMechanic() {
-        return view('main.screens.mechanics');
-    }
 
-    public function registerMechanic() {
+    public function create() {
         return view('main.registers.mechanics');
     }
 
-    public function addMechanic(Request $request) {
+    public function send(Request $request) {
 
         $request->validate([
             'name' => 'required',

@@ -94,10 +94,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `mechanicalworkshop`.`mechanic_team`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`mechanic_team` (
-  `id_mechanic_team` INT(10) UNSIGNED NOT NULL,
+  `id_mechanic_team` INT UNSIGNED NOT NULL,
   `name` VARCHAR(155) NOT NULL,
   `function` TEXT NOT NULL,
-  `mechanic_person_id_person` INT(10) UNSIGNED NOT NULL,
+  `mechanic_person_id_person` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_mechanic_team`),
   UNIQUE INDEX `idmechanic_team_UNIQUE` (`id_mechanic_team` ASC),
   INDEX `fk_mechanic_team_mechanic1_idx` (`mechanic_person_id_person` ASC),
@@ -108,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`mechanic_team` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
 
 -- -----------------------------------------------------
 -- Table `mechanicalworkshop`.`part`
@@ -136,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `mechanicalworkshop`.`vehicle` (
   `color` VARCHAR(155) NOT NULL,
   `license_plate` VARCHAR(8) NOT NULL,
   `model` VARCHAR(155) NOT NULL,
-  `mileage` VARCHAR(155) NOT NULL,
+  `mileage` FLOAT NOT NULL,
   `client_id_client` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_vehicle`),
   UNIQUE INDEX `idvehicle_UNIQUE` (`id_vehicle` ASC) VISIBLE,

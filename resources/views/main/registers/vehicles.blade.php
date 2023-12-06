@@ -1,6 +1,6 @@
-@extends('layouts.registers.mechanics')
+@extends('layouts.registers.vehicles')
 
-@section('title', 'Mechanics')
+@section('title', 'Vehicles')
 
 @section('content')
 
@@ -9,44 +9,41 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <form method="post" action="/vehicles">
+                <form action="{{ route('vehicle.addVehicle') }}" method="post" class="form"
+                    enctype="multipart/form-data">
                     @csrf
 
-                    Adicionar Veículos
+                    <input type="text" name="name" placeholder="Nome" required pattern="^[a-zA-Z0-9\s]+$"
+                        title="Apenas letras, números e espaços são permitidos" value="{{ old('name') }}">
+                    <span id="name-error" class="error-message">{{ $errors->first('name') }}</span>
 
-                    <input id="input" type="text" name="name" placeholder="Nome" required>
+                    <input type="text" name="color" placeholder="Cor" required pattern="^[a-zA-Z0-9\s]+$"
+                        title="Apenas letras, números e espaços são permitidos" value="{{ old('color') }}">
+                    <span id="color-error" class="error-message">{{ $errors->first('color') }}</span>
 
-                    <br>
+                    <input type="text" name="license_plate" placeholder="Placa: A1B-2C3D" required
+                        value="{{ old('license_plate') }}">
+                    <span id="license_plate-error" class="error-message">{{ $errors->first('license_plate') }}</span>
 
-                    <input id="input" type="text" name="color" placeholder="Cor" required>
+                    <input type="text" name="model" placeholder="Modelo" required pattern="^[a-zA-Z0-9\s]+$"
+                        title="Apenas letras, números e espaços são permitidos" value="{{ old('model') }}">
+                    <span id="model-error" class="error-message">{{ $errors->first('model') }}</span>
 
-                    <br>
+                    <input type="text" name="mileage" placeholder="Km" required pattern="^[a-zA-Z0-9\s]+$"
+                        title="Apenas letras, números e espaços são permitidos" value="{{ old('mileage') }}">
+                    <span id="mileage-error" class="error-message">{{ $errors->first('mileage')
+                        }}</span>
 
-                    <input id="input" type="text" name="license_plate" placeholder="Placa" required>
-
-                    <br>
-
-                    <input id="input" type="text" name="model" placeholder="Modelo" required>
-
-                    <br>
-
-                    <input id="input" type="text" name="mileage" placeholder="Quilometragem" required>
-
-                    <br>
-
-                    <label for="client_cpf">Cpf do Cliente</label>
-                    <select id="client_cpf" name="client_cpf" required>
-                        <option value="" disabled selected>Selecione o cpf do cliente</option>
+                    <select name="client_cpf" required>
+                        <option value="" disabled selected>CPF do cliente</option>
                         @foreach($clients as $client)
-                        <option value="{{ $client->cpf }}" {{ old('client_cpf')==$client->cpf ? 'selected' : '' }}>
-                            {{ $client->cpf }}
-                        </option>
+                        <option value="{{ $client->cpf }}" {{ old('client_cpf')==$client->cpf ? 'selected' : ''
+                            }}>{{ $client->cpf }}</option>
                         @endforeach
                     </select>
                     <span id="client_cpf-error" class="error-message">{{ $errors->first('client_cpf') }}</span>
 
-
-                    <button id="send" type="submit">Adicionar</button>
+                    <button type="submit">Cadastrar</button>
                 </form>
 
                 @if($errors->any())
