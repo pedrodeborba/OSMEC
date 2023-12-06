@@ -9,7 +9,8 @@ use App\Models\Person;
 
 class MechanicController extends Controller {
     public function index() {
-        $mechanics = Mechanic::all();
+        $mechanics = (new Mechanic())->getAllMechanics();
+
         return view('main.screens.mechanics', ['mechanics' => $mechanics]);
     }
 
@@ -52,7 +53,8 @@ class MechanicController extends Controller {
                 'specialty' => $request->input('specialty'),
             ]);
 
-            return view('main.screens.mechanics')->with('success', 'Mecânico criado com sucesso.');
+            $mechanics = (new Mechanic())->getAllMechanics();
+            return view('main.screens.mechanics', ['mechanics' => $mechanics])->with('success', 'Mecânico criado com sucesso.');
         } 
 
         return redirect()->route('main.registers.mechanics')->with('error', 'Erro ao criar mecânico!');

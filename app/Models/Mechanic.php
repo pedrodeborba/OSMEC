@@ -24,8 +24,8 @@ class Mechanic extends Model {
     public function getAllMechanics() {
         return DB::table($this->table)
             ->join('person', 'mechanic.person_id_person', '=', 'person.id_person')
-            ->select('person.*', 'mechanic.especialidade', 'mechanic.status')
-            ->where('person.perfil', '=', 'mechanic')
+            ->select('person.*', 'mechanic.specialty', 'mechanic.status')
+            ->where('person.profile', '=', 'mechanic')
             ->get();
     }
 
