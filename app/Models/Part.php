@@ -11,6 +11,8 @@ class Part extends Model
 
     protected $table = 'part';
 
+    protected $primaryKey = 'id_part';
+
     protected $fillable = [
         'name',
         'description',

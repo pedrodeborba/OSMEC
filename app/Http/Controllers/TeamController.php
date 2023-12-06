@@ -45,4 +45,10 @@ class TeamController extends Controller
             return view('main.registers.teams')->with('error', 'Falha ao criar a equipe!');
         }
     }
+
+    public function delete($id) {
+        $team = Team::find($id);
+        $team->delete();
+        return redirect()->route('teams.index')->with('success', 'Equipe concluiu o objetivo!');
+    }
 }

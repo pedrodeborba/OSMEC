@@ -50,4 +50,10 @@ class VehicleController extends Controller {
             return view('main.registers.vehicles')->with('error', 'Falha ao associar o veículo ao cliente.');
         }
     }
+
+    public function delete($id) {
+        $vehicle = Vehicle::find($id);
+        $vehicle->delete();
+        return redirect()->route('vehicles.index')->with('success', 'Veículo removid!');
+    }
 }

@@ -12,6 +12,8 @@ class Team extends Model {
     protected $table = 'mechanic_team';
     public $timestamps = false;
 
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'name',
         'function',

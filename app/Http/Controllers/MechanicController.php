@@ -27,7 +27,7 @@ class MechanicController extends Controller {
             'cpf' => 'required|unique:person,cpf',
             'rg' => 'required|unique:person,rg',
             'specialty' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:person,phone',
         ], [
                 'email.unique' => 'O e-mail já está em uso.',
                 'cpf.unique' => 'O CPF já está em uso.',
@@ -48,7 +48,7 @@ class MechanicController extends Controller {
         if ($person) {
 
             Mechanic::create([
-                'person_id_person' => $person->id,
+                'person_id_person' => $person->id_person,
                 'status' => 1,
                 'specialty' => $request->input('specialty'),
             ]);
@@ -60,4 +60,23 @@ class MechanicController extends Controller {
         return redirect()->route('main.registers.mechanics')->with('error', 'Erro ao criar mecânico!');
     }
 
+    public function delete($personId) {
+        // Buscar a pessoa associada ao mecânico
+        $person = Person::find($personId);
+    
+        if ($person) {
+            // Buscar o mecânico associado à pessoa
+            $mechanic = $person->mechanic;
+    
+            if ($mechanic) {
+                // Excluir o mecânico e a pessoa associada em cascata
+                $mechanic->delete();
+                $person->delete();
+    
+                return redirect()->route('mechanics.index')->with('success', 'Mecânico removido!');
+            }
+        }
+    
+        return redirect()->route('mechanics.index')->with('error', 'Mecânico não encontrado!');
+    }
 }

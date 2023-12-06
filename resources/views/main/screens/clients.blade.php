@@ -61,7 +61,7 @@
                                     </a>
                                 </td>
                                 <td class="table-column">
-                                    <a href="">
+                                    <a href="{{ route('clients.delete', $client->id_client) }}">
                                         <button class="icons">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#f00"
                                                 class="bi bi-trash" viewBox="0 0 16 16">
@@ -123,7 +123,7 @@
                                         </a>
                                     </td>
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('clients.delete', $client->id_client) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                     fill="#f00" class="bi bi-trash" viewBox="0 0 16 16">

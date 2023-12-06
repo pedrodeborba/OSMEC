@@ -31,7 +31,7 @@
                 <div class="table-box">
                     <table class="table table-striped">
                         <thead>
-                            <th class="table-column">Nome</th>
+                            <th class="table-column">Peça</th>
                             <th class="table-column">Quantidade</th>
                             <th class="table-column">Valor</th>
                             <th class="table-column">Fabricante</th>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td class="table-column"><p>{{ $part->name }}</p></td>
                                 <td class="table-column"><p>{{ $part->quantity }}</p></td>
-                                <td class="table-column"><p>{{ $part->cost }}</p></td>
+                                <td class="table-column"><p>R$ {{ $part->cost }}</p></td>
                                 <td class="table-column"><p>{{ $part->manufacturer }}</p></td>
                                 <td class="table-column"><p>{{ $part->manufacture_year }}</p></td>
                                 <td class="table-column"><p>{{ $part->description }}</p></td>
@@ -61,7 +61,7 @@
                                     </a>
                                 </td>
                                 <td class="table-column">
-                                    <a href="">
+                                    <a href="{{ route('parts.delete', $part->id_part) }}">
                                         <button class="icons">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#f00"
                                                 class="bi bi-trash" viewBox="0 0 16 16">
@@ -84,14 +84,14 @@
                     <div class="col-lg-8">
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><span>Nome: </span>
+                                <li class="list-group-item"><span>Peça: </span>
                                     <p>{{ $part->name }}</p>
                                 </li>
                                 <li class="list-group-item"><span>Quantidade: </span>
                                     <p>{{ $part->quantity }}</p>
                                 </li>
                                 <li class="list-group-item"><span>Valor: </span>
-                                    <p>{{ $part->cost }}</p>
+                                    <p>R$ {{ $part->cost }}</p>
                                 </li>
                                 <li class="list-group-item"><span>Fabricante: </span>
                                     <p>{{ $part->manufacturer }}</p>
@@ -123,7 +123,7 @@
                                         </a>
                                     </td>
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('parts.delete', $part->id_part) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                     fill="#f00" class="bi bi-trash" viewBox="0 0 16 16">

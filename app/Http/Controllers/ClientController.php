@@ -45,6 +45,18 @@ class ClientController extends Controller {
         return redirect()->route('clients.index')->with(['clients' => $clients, 'success' => 'Cliente adicionado com sucesso.']);
     }
 
+    public function delete($id) {
+        $client = Client::find($id);
+
+        if($client->vehicle()->exists()) {
+            return redirect()->route('clients.index')->with('error', 'Este cliente possui carros associados. Remova os carros e tente novamente.');
+        }
+
+        $client->delete();
+
+        return redirect()->route('clients.index')->with('success', 'cliente removido!');
+    }
+
     // public function edit($id) {
     //     $client = Client::find($id);
     //     return view('EDITCLIENT', ['client' => $client]);
@@ -72,15 +84,4 @@ class ClientController extends Controller {
     //     return redirect()->route('client.show')->with('success', 'client atualizado com sucesso.');
     // }
 
-    // public function delete($id) {
-    //     $client = Client::find($id);
-
-    //     if($client->carro()->exists()) {
-    //         return redirect()->route('client.show')->with('error', 'Este client possui carros associados. Remova os carros antes de excluir o client.');
-    //     }
-
-    //     $client->delete();
-
-    //     return redirect()->route('client.index')->with('success', 'client removido com sucesso.');
-    // }
 }

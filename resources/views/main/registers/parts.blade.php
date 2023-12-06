@@ -30,7 +30,7 @@
 
                     <br>
 
-                    <input id="input" type="number" name="cost" placeholder="Custo" required>
+                    <input id="input" type="number" name="cost" step="0.01" min="0.00" placeholder="Custo" required>
 
                     <br>
 

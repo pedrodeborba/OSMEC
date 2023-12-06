@@ -9,7 +9,7 @@ class Client extends Model {
     use HasFactory;
     public $timestamps = false;
     protected $table = 'client';
-    protected $primaryKey = 'id_cliente';
+    protected $primaryKey = 'id_client';
 
     protected $fillable = [
         'name',
@@ -21,7 +21,7 @@ class Client extends Model {
     ];
 
     public function key() {
-        return 'id_cliente';
+        return 'id_client';
     }
 
     public function vehicle() {

@@ -41,4 +41,10 @@ class PartController extends Controller
         $parts = Part::all();
         return redirect()->route('parts.index')->with(['parts' => $parts, 'success' => 'Peça adicionada com sucesso.']);
     }
+
+    public function delete($id) {
+        $part = Part::find($id);
+        $part->delete();
+        return redirect()->route('parts.index')->with('success', 'Peça removida!');
+    }
 }

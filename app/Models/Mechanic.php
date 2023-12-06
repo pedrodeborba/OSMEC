@@ -29,23 +29,31 @@ class Mechanic extends Model {
             ->get();
     }
 
-    public static function deleteMechanic($personId) {
-        return self::where('person_id_person', $personId)->delete();
+    public function person() {
+        return $this->belongsTo(Person::class, 'person_id_person');
     }
+    
+    public function deleteMechanic($personId) {
+        $mechanic = self::where('person_id_person', $personId)->first();
+    
+        if ($mechanic) {
+            return $mechanic->delete();
+        }
+    
+        return false;
+    }
+    
 
     public static function editMechanic($personId, $data) {
         return self::where('person_id_person', $personId)->update($data);
     }
 
-    public function person() {
-        return $this->belongsTo(Person::class, 'person_id_person');
-    }
 
     public static function listMechanics() {
         return self::with('person')->get();
     }
 
     public function mechanicTeam() {
-        return $this->hasOne(Mechanic::class, 'Mechanic_person_id_person');
+        return $this->hasOne(Mechanic::class, 'mechanic_person_id_person');
     }
 }
