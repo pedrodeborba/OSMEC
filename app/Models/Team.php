@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Mechanic;
 
-class Team extends Model
-{
+class Team extends Model {
     use HasFactory;
 
     protected $table = 'mechanic_team';
@@ -16,16 +15,15 @@ class Team extends Model
     protected $fillable = [
         'name',
         'function',
+        'mechanics',
         'mechanic_person_id_person',
     ];
 
-    public function mechanic()
-    {
+    public function mechanic() {
         return $this->belongsTo(Mechanic::class, 'mechanic_person_id_person', 'person_id_person');
     }
- 
-     public function getAll()
-     {
-         return self::with('mechanic')->get();
-     }
+
+    public function getAll() {
+        return self::with('mechanic')->get();
+    }
 }

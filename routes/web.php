@@ -57,9 +57,9 @@ Route::post('/mechanics/send', [MechanicController::class, 'send'])->name('mecha
 
 // Team
 
-Route::get('/teams', [TeamController::class, 'index'])->name('team.index');
+Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
 
-Route::get('/teams/add', [TeamController::class, 'create'])->name('team.create');
+Route::get('/teams/add', [TeamController::class, 'create'])->name('teams.create');
 
 Route::post('/teams/send', [TeamController::class, 'send'])->name('teams.send');
 

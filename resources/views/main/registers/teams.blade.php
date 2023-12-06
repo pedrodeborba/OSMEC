@@ -13,15 +13,24 @@
                 <form action="{{ route('teams.send') }}" method="post" class="form" enctype="multipart/form-data">
                     @csrf
 
+                    <label for="name">Nome</label>
                     <input type="text" name="name" placeholder="name da Equipe" required value="{{ old('name') }}">
 
                     <br>
 
+                    <label for="function">Função</label>
                     <input type="text" name="function" placeholder="Função da Equipe" required
                         value="{{ old('function') }}">
 
                     <br>
 
+                    <label for="mechanics">Mecânicos</label>
+                    <input type="text" name="mechanics" placeholder="EX: Pedro, João..." required
+                        value="{{ old('mechanics') }}">
+
+                    <br>
+
+                    <label for="mechanic_person_id_person">Lider</label>
                     <select name="mechanic_person_id_person" style="width: 90%" required>
                         @foreach($persons as $person)
                         <option value="{{ $person->name }}" {{ old('mechanic_person_id_person')==$person->name ?

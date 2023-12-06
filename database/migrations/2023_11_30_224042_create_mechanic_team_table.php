@@ -13,6 +13,7 @@ class CreateMechanicTeamTable extends Migration
             $table->id();
             $table->string('name', 155);
             $table->text('function');
+            $table->string('mechanics', 255);
             $table->unsignedBigInteger('mechanic_person_id_person')->constrained('mechanic')->onDelete('cascade');
             $table->timestamps();
         });

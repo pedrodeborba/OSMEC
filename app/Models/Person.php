@@ -15,6 +15,8 @@ class Person extends Authenticatable
     public $timestamps = false;
     protected $table = 'person';
 
+    protected $primaryKey = 'id_person';
+
     protected $fillable = [
         'name',
         'email',
@@ -34,10 +36,10 @@ class Person extends Authenticatable
     }
 
     public function admin(){
-        return $this->hasOne(Admin::class, 'pessoa_id_pessoa');
+        return $this->hasOne(Admin::class, 'person_id_person');
     }
 
-    public function funcionario(){
-        return $this->hasOne(Mechanic::class, 'pessoa_id_pessoa');
+    public function mechanic(){
+        return $this->hasOne(Mechanic::class, 'person_id_person');
     }
 }

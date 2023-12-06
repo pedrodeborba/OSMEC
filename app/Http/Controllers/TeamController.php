@@ -25,6 +25,7 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required',
             'function' => 'required',
+            'mechanics' => 'required',
             'mechanic_person_id_person' => 'required',
         ]);
 
@@ -33,6 +34,7 @@ class TeamController extends Controller
         $team = Team::create([
             'name' => $request->input('name'),
             'function' => $request->input('function'),
+            'mechanics' => $request->input('mechanics'),
             'mechanic_person_id_person' => $persons->id_person,
         ]);
 
