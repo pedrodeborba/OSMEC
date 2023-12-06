@@ -6,66 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 
 class ClientController extends Controller {
-    public function showClient() {
-        return view('main.screens.clients');
+
+    public function index() {
+        $clients = Client::all();
+        return view('main.screens.clients', ['clients' => $clients]);
     }
 
-    public function registerClient() {
+    public function create() {
         return view('main.registers.clients');
     }
 
-    //    public function listClient()
-//    {
-//        $clients = Client::all(); 
-//        return view('main.registers.clients', ['clients' => $clients]);
-//    }
+    public function send(Request $request) {
 
-    // Renderiza o formulário de edição do client
-//    public function edit($id)
-//    {
-//        $client = Client::find($id);
-//        return view('EDITCLIENT', ['client' => $client]);
-//    }
-
-    //    public function update(Request $request, $id)
-//    {
-//        $validator = $request->validate([
-//            'name' => 'required',
-//            'email' => 'required|email|unique:client,email,' . $id,
-//            'cpf' => 'required|unique:client,cpf,' . $id,
-//            'rg' => 'required|unique:client,rg,' . $id,
-//            'address' => 'required',
-//            'phone' => 'required|unique:client,phone,' . $id,
-//        ], [
-//            'email.unique' => 'O e-mail já está em uso.',
-//            'cpf.unique' => 'O CPF já está em uso.',
-//            'rg.unique' => 'O RG já está em uso.',
-//            'phone.unique' => 'O phone já está em uso.'
-//        ]);
-
-    //        $client = Client::find($id);
-
-    //        $client->update($request->all());
-
-    //        return redirect()->route('client.show')->with('success', 'client atualizado com sucesso.');
-//    }   
-
-    // public function deleteClient($id) {
-    //     $client = Client::find($id);
-
-    //     if($client->carro()->exists()) {
-    //         return redirect()->route('client.show')->with('error', 'Este client possui carros associados. Remova os carros antes de excluir o client.');
-    //     }
-
-    //     $client->delete();
-
-    //     return redirect()->route('client.index')->with('success', 'client removido com sucesso.');
-    // }
-
-
-    public function addClient(Request $request) {
-
-        $validator = $request->validate([
+        $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:client,email',
             'cpf' => 'required|unique:client,cpf',
@@ -90,4 +43,43 @@ class ClientController extends Controller {
 
         return view('main.screens.clients')->with('success', 'Cliente criado com sucesso!');
     }
+
+    // public function edit($id) {
+    //     $client = Client::find($id);
+    //     return view('EDITCLIENT', ['client' => $client]);
+    // }
+
+    // public function update(Request $request, $id) {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required|email|unique:client,email,'.$id,
+    //         'cpf' => 'required|unique:client,cpf,'.$id,
+    //         'rg' => 'required|unique:client,rg,'.$id,
+    //         'address' => 'required',
+    //         'phone' => 'required|unique:client,phone,'.$id,
+    //     ], [
+    //         'email.unique' => 'O e-mail já está em uso.',
+    //         'cpf.unique' => 'O CPF já está em uso.',
+    //         'rg.unique' => 'O RG já está em uso.',
+    //         'phone.unique' => 'O phone já está em uso.'
+    //     ]);
+
+    //     $client = Client::find($id);
+
+    //     $client->update($request->all());
+
+    //     return redirect()->route('client.show')->with('success', 'client atualizado com sucesso.');
+    // }
+
+    // public function delete($id) {
+    //     $client = Client::find($id);
+
+    //     if($client->carro()->exists()) {
+    //         return redirect()->route('client.show')->with('error', 'Este client possui carros associados. Remova os carros antes de excluir o client.');
+    //     }
+
+    //     $client->delete();
+
+    //     return redirect()->route('client.index')->with('success', 'client removido com sucesso.');
+    // }
 }

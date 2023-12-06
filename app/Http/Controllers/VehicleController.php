@@ -8,18 +8,18 @@ use App\Models\Client;
 
 class VehicleController extends Controller {
     
-    public function showVehicle() {
+    public function index() {
         $vehicles = (new Vehicle())->getAll();
 
         return view('main.screens.vehicles', ['vehicles' => $vehicles]);
     }
 
-    public function registerVehicle() {
+    public function create() {
         $clients = Client::all();
         return view('main.registers.vehicles', compact('clients'));
     }
 
-    public function addVehicle(Request $request) {
+    public function send(Request $request) {
 
         $request->validate([
             'name' => 'required|string|max:255',

@@ -10,7 +10,7 @@
             <img src="{{asset('img/osmec.png')}}" alt="Logo">
         </div>
         <div class="col-lg-6" id="inputs">
-            <form method="post" action="/login">
+            <form method="post" action="{{ route('login.send') }}">
                 @csrf
 
                 <input id="input" type="email" name="email" placeholder="Email" required>

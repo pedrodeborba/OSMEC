@@ -7,23 +7,18 @@ use App\Models\Part;
 
 class PartController extends Controller
 {
-    // public function index()
-    // {
-    //     $parts = Part::all();
-    //     return view('main.registers.parts', ['parts' => $parts]);
-    // }
-
-    public function showPart()
+    public function index()
     {
-        return view('main.screens.parts');
+        $parts = Part::all();
+        return view('main.screens.parts', ['parts' => $parts]);
     }
 
-    public function registerPart()
+    public function create()
     {
         return view('main.registers.parts');
     }
 
-    public function addPart(Request $request)
+    public function send(Request $request)
     {
         $request->validate([
             'name' => 'required',

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <form action="{{ route('vehicle.addVehicle') }}" method="post" class="form"
+                <form action="{{ route('vehicles.send') }}" method="post" class="form"
                     enctype="multipart/form-data">
                     @csrf
 

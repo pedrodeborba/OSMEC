@@ -17,56 +17,57 @@ Route::redirect('/', '/login');
 
 // Auth
 
-Route::get('/login', [AuthController::class, 'getLogin']);
+Route::get('/login', [AuthController::class, 'getLogin'])->name('login.create');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('send.send');
 
 // Dashboard
 
-Route::get('/dashboard', [Dashboard::class, 'getDashboard']);
+Route::get('/dashboard', [Dashboard::class, 'getDashboard'])->name('dashboard.create');
 
 // Parts
 
-Route::get('/parts/add', [PartController::class, 'registerPart']);
+Route::get('/parts', [PartController::class, 'index'])->name('parts.show');
 
-Route::get('/parts', [PartController::class, 'showPart']);
+Route::get('/parts/add', [PartController::class, 'create'])->name('parts.create');
 
-Route::post('/parts', [PartController::class, 'addPart']);
+Route::post('/parts/add', [PartController::class, 'send'])->name('parts.send');
 
 // Clients
 
-Route::get('/clients/add', [ClientController::class, 'registerClient']);
+Route::get('/clients', [ClientController::class, 'index'])->name('client.show');
 
-Route::get('/clients', [ClientController::class, 'showClient']);
+Route::get('/clients/add', [ClientController::class, 'create'])->name('clients.create');
 
-Route::post('/clients', [ClientController::class, 'addClient']);
+Route::post('/clients/add', [ClientController::class, 'send'])->name('clients.send');
+
+Route::get('/clients/edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
+
+Route::put('/clients/update/{id}', [ClientController::class, 'update'])->name('clients.update');
+
+Route::get('/clients/delete/{id}', [ClientController::class, 'delete'])->name('clients.delete');
 
 // Mechanics
 
-// Rota para exibir a lista de mecanicos
 Route::get('/mechanics', [MechanicController::class, 'index'])->name('mechanics.show');
 
-    // Rota para exibir o formulário de adição de funcionário
-    Route::get('/mechanics/add', [MechanicController::class, 'create'])->name('mechanics.create');
+Route::get('/mechanics/add', [MechanicController::class, 'create'])->name('mechanics.create');
 
-    // Rota para processar o formulário e adicionar um novo funcionário
-    Route::post('/mechanics/add', [MechanicController::class, 'send'])->name('mechanics.send');
+Route::post('/mechanics/add', [MechanicController::class, 'send'])->name('mechanics.send');
 
 // Team
 
-// Rota para exibir a lista de clientes
-Route::get('/teams', [TeamController::class, 'index'])->name('team.generate');
+Route::get('/teams', [TeamController::class, 'index'])->name('team.show');
 
-    // Rota para exibir o formulário de adição de equipe
-    Route::get('/teams/add', [TeamController::class, 'create'])->name('team.create');
+Route::get('/teams/add', [TeamController::class, 'create'])->name('team.create');
 
-    // Rota para processar o formulário e adicionar uma nova equipe
-    Route::post('/teams/add', [TeamController::class, 'send'])->name('teams.send');
+Route::post('/teams/add', [TeamController::class, 'send'])->name('teams.send');
 
 // Vehicles
 
-Route::get('/vehicles/add', [VehicleController::class, 'registerVehicle']);
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.show');
 
-Route::get('/vehicles', [VehicleController::class, 'showVehicle']);
+Route::get('/vehicles/add', [VehicleController::class, 'create'])->name('vehicles.create');
 
-Route::post('/vehicles', [VehicleController::class, 'addVehicle'])->name('vehicle.addVehicle');
+Route::post('/vehicles/add', [VehicleController::class, 'send'])->name('vehicles.send');
+

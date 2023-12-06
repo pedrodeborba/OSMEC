@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
-                <form method="post" action="/parts">
+                <form method="post" action="{{ route('parts.send') }}">
                     @csrf
 
                     Adicionar Peça
