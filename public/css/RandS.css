@@ -16,6 +16,17 @@ a{
     color: #fff;
 }
 
+span{
+    font-weight: 800;
+    color: #0085FF;
+    margin-right: 10px;
+}
+
+p{
+    font-weight: 800;
+    color: #0085FF;
+}
+
 #MainSection{
     min-width: 100%;
     min-height: 100vh;
@@ -35,7 +46,7 @@ a{
     border-radius: 10px;
     background-color: #0085FF;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
 }
 
@@ -47,7 +58,7 @@ a{
     border-radius: 10px;
     background-color: #00C09E;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
 }
 
@@ -56,24 +67,37 @@ a{
     background-color: #000;
 }
 
-.table-column{
+td.table-column{
+    padding-top: 20px;
+    align-items: center;
     text-align: center;
 }
 
-@media screen and (max-width: 768px){
-    #delX{
-        display: none;
-    }  
+.list-group-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-@media screen and (max-width: 600px){
-    #delXX{
-        display: none;
-    }  
+#card-mobile{
+    display: none;
 }
 
-@media screen and (max-width: 478px){
-    #delXXX{
+.icons{
+    border: none;
+    background-color: transparent;
+}
+
+#editANDdelete{
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 1000px){
+    .table-box{
         display: none;
-    }  
+    }
+    #card-mobile{
+        display: block;
+        margin-bottom: 30px;
+    }
 }

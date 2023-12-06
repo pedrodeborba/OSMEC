@@ -41,7 +41,8 @@ class ClientController extends Controller {
             'phone' => $request->input('phone')
         ]);
 
-        return view('main.screens.clients')->with('success', 'Cliente criado com sucesso!');
+        $clients = Client::all();
+        return view('main.screens.clients',['clients' => $clients])->with('success', 'Cliente criado com sucesso!');
     }
 
     // public function edit($id) {
