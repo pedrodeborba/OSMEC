@@ -62,7 +62,7 @@
                                         <p>{{ $vehicle->client ? $vehicle->client->name : 'Não associado' }}</p>
                                     </td>
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('vehicles.edit', $vehicle->id_vehicle) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.omodel/2000/svg" width="30" height="30"
                                                     fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -123,7 +123,7 @@
                             <tbody>
                                 <tr id="editANDdelete">
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('vehicles.edit', $vehicle->id_vehicle) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.omodel/2000/svg" width="30" height="30"
                                                     fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">

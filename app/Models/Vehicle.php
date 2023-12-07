@@ -9,10 +9,9 @@ class Vehicle extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
     protected $table = 'vehicle';
-
     protected $primaryKey = 'id_vehicle';
+    protected $guarded = [];
 
     protected $fillable = [
         'name',

@@ -73,6 +73,10 @@ Route::post('/vehicles/send', [VehicleController::class, 'send'])->name('vehicle
 
 Route::get('/vehicles/delete/{id}', [VehicleController::class, 'delete'])->name('vehicles.delete');
 
+Route::get('/vehicles/edit/{id}', [VehicleController::class, 'edit'])->name('vehicles.edit');
+
+Route::put('/vehicles/update/{id}', [VehicleController::class, 'update'])->name('vehicles.update');
+
 // Parts
 
 Route::get('/parts', [PartController::class, 'index'])->name('parts.index');
