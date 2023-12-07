@@ -51,8 +51,7 @@
                                     <p>{{ $team->mechanics }}</p>
                                 </td>
                                 <td class="table-column">
-                                    <p>{{ $team->mechanic ? $team->mechanic->person->name : 'Nenhum funcionário
-                                        associado'}}</p>
+                                    <p>{{ $team->mechanic ? $team->mechanic->person->name : 'Nenhum mecânico associado'}}</p>
                                 </td>
                                 <td class="table-column">
                                     <a href="">
@@ -99,8 +98,7 @@
                                     <p>{{ $team->mechanics }}</p>
                                 </li>
                                 <li class="list-group-item"><span>Lider: </span>
-                                    <p>{{ $team->mechanic ? $team->mechanic->person->name : 'Nenhum funcionário
-                                        associado'}}</p>
+                                    <p>{{ $team->mechanic ? $team->mechanic->person->name : 'Nenhum mecânico associado'}}</p>
                                 </li>
                             </ul>
                         </div>

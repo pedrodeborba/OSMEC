@@ -25,16 +25,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.send');
 
 Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('dashboard.create');
 
-// Parts
-
-Route::get('/parts', [PartController::class, 'index'])->name('parts.index');
-
-Route::get('/parts/add', [PartController::class, 'create'])->name('parts.create');
-
-Route::post('/parts/send', [PartController::class, 'send'])->name('parts.send');
-
-Route::get('/parts/delete/{id}', [PartController::class, 'delete'])->name('parts.delete');
-
 // Clients
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
@@ -78,4 +68,15 @@ Route::get('/vehicles/add', [VehicleController::class, 'create'])->name('vehicle
 Route::post('/vehicles/send', [VehicleController::class, 'send'])->name('vehicles.send');
 
 Route::get('/vehicles/delete/{id}', [VehicleController::class, 'delete'])->name('vehicles.delete');
+
+// Parts
+
+Route::get('/parts', [PartController::class, 'index'])->name('parts.index');
+
+Route::get('/parts/add', [PartController::class, 'create'])->name('parts.create');
+
+Route::post('/parts/send', [PartController::class, 'send'])->name('parts.send');
+
+Route::get('/parts/delete/{id}', [PartController::class, 'delete'])->name('parts.delete');
+
 

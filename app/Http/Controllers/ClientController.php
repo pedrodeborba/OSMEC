@@ -57,31 +57,35 @@ class ClientController extends Controller {
         return redirect()->route('clients.index')->with('success', 'cliente removido!');
     }
 
-    // public function edit($id) {
-    //     $client = Client::find($id);
-    //     return view('EDITCLIENT', ['client' => $client]);
-    // }
+    public function edit($id) {
+        $client = Client::findOrFail($id);
+        return view('main.edits.clients', ['client' => $client]);
+    }
 
-    // public function update(Request $request, $id) {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required|email|unique:client,email,'.$id,
-    //         'cpf' => 'required|unique:client,cpf,'.$id,
-    //         'rg' => 'required|unique:client,rg,'.$id,
-    //         'address' => 'required',
-    //         'phone' => 'required|unique:client,phone,'.$id,
-    //     ], [
-    //         'email.unique' => 'O e-mail já está em uso.',
-    //         'cpf.unique' => 'O CPF já está em uso.',
-    //         'rg.unique' => 'O RG já está em uso.',
-    //         'phone.unique' => 'O phone já está em uso.'
-    //     ]);
-
-    //     $client = Client::find($id);
-
-    //     $client->update($request->all());
-
-    //     return redirect()->route('client.show')->with('success', 'client atualizado com sucesso.');
-    // }
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:client,email,'.$id.',id_client',
+            'cpf' => 'required|unique:client,cpf,'.$id.',id_client',
+            'rg' => 'required|unique:client,rg,'.$id.',id_client',
+            'address' => 'required',
+            'phone' => 'required|unique:client,phone,'.$id.',id_client',
+        ], [
+            'email.unique' => 'O e-mail já está em uso.',
+            'cpf.unique' => 'O CPF já está em uso.',
+            'rg.unique' => 'O RG já está em uso.',
+            'phone.unique' => 'O phone já está em uso.'
+        ]);
+    
+        $client = Client::where('id_client', $id)->first();
+    
+        if (!$client) {
+            return redirect()->route('main.screens.clients')->with('error', 'Cliente não encontrado.');
+        }
+    
+        $client->update($request->all());
+    
+        return redirect()->route('clients.index')->with('success', 'Cliente atualizado com sucesso!');
+    }    
 
 }

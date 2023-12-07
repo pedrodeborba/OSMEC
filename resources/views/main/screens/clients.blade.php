@@ -50,7 +50,7 @@
                                 <td class="table-column"><p>{{ $client->phone }}</p></td>
                                 <td class="table-column"><p>{{ $client->address }}</p></td>
                                 <td class="table-column">
-                                    <a href="">
+                                    <a href="{{ route('clients.edit', $client->id_client) }}">
                                         <button class="icons">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -111,7 +111,7 @@
                             <tbody>
                                 <tr id="editANDdelete">
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('clients.edit', $client->id_client) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                     fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">
