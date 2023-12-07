@@ -8,10 +8,9 @@ class Part extends Model
 {
     use HasFactory;
     public $timestamps = false; 
-
     protected $table = 'part';
-
     protected $primaryKey = 'id_part';
+    protected $guarded = [];
 
     protected $fillable = [
         'name',

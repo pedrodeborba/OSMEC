@@ -47,4 +47,30 @@ class PartController extends Controller
         $part->delete();
         return redirect()->route('parts.index')->with('success', 'Peça removida!');
     }
+
+    public function edit($id) {
+        $part = Part::findOrFail($id);
+        return view('main.edits.parts', ['part' => $part]);
+    }
+
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'manufacturer' => 'required',
+            'quantity' => 'required|numeric',
+            'cost' => 'required|numeric',
+            'manufacture_year' => 'required|numeric',
+        ]);
+    
+        $part = Part::where('id_part', $id)->first();
+    
+        if (!$part) {
+            return redirect()->route('main.screens.parts')->with('error', 'Peça não encontrada.');
+        }
+    
+        $part->update($request->all());
+    
+        return redirect()->route('parts.index')->with('success', 'Peça atualizada com sucesso!');
+    }
 }

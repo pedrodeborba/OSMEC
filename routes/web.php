@@ -49,7 +49,7 @@ Route::post('/mechanics/send', [MechanicController::class, 'send'])->name('mecha
 
 Route::get('/mechanics/delete/{id}', [MechanicController::class, 'delete'])->name('mechanics.delete');
 
-Route::get('/mechanic/edit/{id}', [MechanicController::class, 'edit'])->name('mechanics.edit');
+Route::get('/mechanics/edit/{id}', [MechanicController::class, 'edit'])->name('mechanics.edit');
 
 Route::put('/mechanics/update/{id}', [MechanicController::class, 'update'])->name('mechanics.update');
 
@@ -83,4 +83,6 @@ Route::post('/parts/send', [PartController::class, 'send'])->name('parts.send');
 
 Route::get('/parts/delete/{id}', [PartController::class, 'delete'])->name('parts.delete');
 
+Route::get('/parts/edit/{id}', [PartController::class, 'edit'])->name('parts.edit');
 
+Route::put('/parts/update/{id}', [PartController::class, 'update'])->name('parts.update');
