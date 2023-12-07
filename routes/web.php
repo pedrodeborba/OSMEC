@@ -49,6 +49,10 @@ Route::post('/mechanics/send', [MechanicController::class, 'send'])->name('mecha
 
 Route::get('/mechanics/delete/{id}', [MechanicController::class, 'delete'])->name('mechanics.delete');
 
+Route::get('/mechanic/edit/{id}', [MechanicController::class, 'edit'])->name('mechanics.edit');
+
+Route::put('/mechanics/update/{id}', [MechanicController::class, 'update'])->name('mechanics.update');
+
 // Team
 
 Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');

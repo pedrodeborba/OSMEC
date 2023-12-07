@@ -11,8 +11,8 @@ class Mechanic extends Model {
 
     protected $table = 'mechanic';
     protected $primaryKey = 'person_id_person';
+    protected $guarded = [];
     public $incrementing = false;
-
     public $timestamps = false;
 
     protected $fillable = [

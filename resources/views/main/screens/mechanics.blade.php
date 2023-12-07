@@ -70,7 +70,7 @@
                                     <p>{{ $mechanic->status == 1 ? 'Ativo' : 'Desativo' }}</p>
                                     </td>
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('mechanics.edit', $mechanic->id_person) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                     fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -137,7 +137,7 @@
                             <tbody>
                                 <tr id="editANDdelete">
                                     <td class="table-column">
-                                        <a href="">
+                                        <a href="{{ route('mechanics.edit', $mechanic->id_person) }}">
                                             <button class="icons">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                     fill="#00C09E" class="bi bi-pencil" viewBox="0 0 16 16">

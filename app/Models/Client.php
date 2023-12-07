@@ -11,6 +11,8 @@ class Client extends Model {
     protected $table = 'client';
     protected $primaryKey = 'id_client';
 
+    protected $guarded = [];
+
     protected $fillable = [
         'name',
         'email',
