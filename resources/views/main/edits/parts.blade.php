@@ -39,7 +39,7 @@
 
                     <br>
 
-                    <button id="send" type="submit">Editar</button>
+                    <button id="send" type="submit">Atualizar</button>
 
                 </form>
                 @if($errors->any())

@@ -29,15 +29,15 @@ class ServiceOrderController extends Controller
 
     public function send(Request $request)
     {
-        $request['status'] = 1;
-
+        $request['status'] = $request->has('status') ? 0 : 1;
         $request->validate([
             'entry_date' => 'required|date_format:Y-m-d',
             'exit_date' => 'required|date_format:Y-m-d',
             'defect' => 'required',
             'solution' => 'required',
             'work_price' => 'required',
-            'total' => 'required',
+            'total',
+            'status' => 'required|in:0,1',
             'vehicle_id_vehicle_fk' => 'required',
             'mechanic_team_id_mechanic_team' => 'required',
             'client_id_client_fk' => 'required',
@@ -49,6 +49,24 @@ class ServiceOrderController extends Controller
         ]);
 
         try {
+            // Calcula o custo das peças
+            $partsCost = 0;
+            if ($request->has('part')) {
+                $selectedParts = $request->input('part');
+                foreach ($selectedParts as $partId) {
+                    $part = Part::find($partId);
+                    if ($part) {
+                        $partsCost += $part->cost;
+                    }
+                }
+            }
+
+            // Calcula o total da ordem de serviço (work_price + custo das peças)
+            $total = $request->input('work_price') + $partsCost;
+
+            // Define o total calculado
+            $request['total'] = $total;
+
             $service_order = ServiceOrder::create($request->all());
 
             $service_order->vehicle()->associate($request->input('vehicle_id_vehicle_fk'));
@@ -88,15 +106,15 @@ class ServiceOrderController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request['status'] = 1;
-
+        $request['status'] = $request->has('status') ? 0 : 1;
         $request->validate([
             'entry_date' => 'required|date_format:Y-m-d',
             'exit_date' => 'required|date_format:Y-m-d',
             'defect' => 'required',
             'solution' => 'required',
             'work_price' => 'required',
-            'total' => 'required',
+            'total',
+            'status' => 'required|in:0,1',
             'vehicle_id_vehicle_fk' => 'required',
             'mechanic_team_id_mechanic_team' => 'required',
             'client_id_client_fk' => 'required',
@@ -108,6 +126,24 @@ class ServiceOrderController extends Controller
         ]);
 
         try {
+            // Calcula o custo das peças
+            $partsCost = 0;
+            if ($request->has('part')) {
+                $selectedParts = $request->input('part');
+                foreach ($selectedParts as $partId) {
+                    $part = Part::find($partId);
+                    if ($part) {
+                        $partsCost += $part->cost;
+                    }
+                }
+            }
+
+            // Calcula o total da ordem de serviço (work_price + custo das peças)
+            $total = $request->input('work_price') + $partsCost;
+
+            // Define o total calculado
+            $request['total'] = $total;
+
             $service_order = ServiceOrder::findOrFail($id);
 
             $service_order->update($request->all());

@@ -37,7 +37,7 @@
 
                     <input id="input" type="text" name="specialty" placeholder="Especialidade" value="{{ $mechanic->specialty }}">
 
-                    <button id="send" type="submit">Editar</button>
+                    <button id="send" type="submit">Atualizar</button>
 
                 </form>
                 @if($errors->any())

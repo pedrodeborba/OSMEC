@@ -71,11 +71,6 @@
 
                     <br>
 
-                    <label for="total">Total</label>
-                    <input type="number" name="total" placeholder="Total" required value="{{ $service_order->total }}">
-
-                    <br>
-
                     <label for="entry_date">Data de emissão</label>
                     <input type="date" name="entry_date" placeholder="DD/MM/AAAA" required
                         value="{{ \Carbon\Carbon::parse($service_order->entry_date)->format('Y-m-d') }}">
@@ -88,7 +83,15 @@
 
                     <br>
 
-                    <button type="submit">Adicionar</button>
+                    <label for="status">Status</label>
+                    <div class="form-check form-switch form-check-reverse">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse" name="status" value="0">
+                        <label class="form-check-label" for="flexSwitchCheckReverse">Fechado</label>
+                    </div>
+
+                    <br>
+
+                    <button type="submit">Atualizar</button>
                 </form>
 
                 @if($errors->any())

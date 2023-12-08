@@ -55,7 +55,7 @@
                                     <p>{{ optional($service_order)->total }}</p>
                                 </td>
                                 <td class="table-column">
-                                    <p>{{ optional($service_order)->status }}</p>
+                                    <p>{{ $service_order->status == 1 ? 'Aberto' : 'Fechado' }}</p>
                                 </td>
                                 <td class="table-column">
                                     <a href="{{ route('service_orders.edit', $service_order->id_service_order) }}">
@@ -107,7 +107,7 @@
                                     <p>{{ optional($service_order)->total }}</p>
                                 </li>
                                 <li class="list-group-item"><span>Status: </span>
-                                    <p>{{ optional($service_order)->status }}</p>
+                                    <p>{{ $service_order->status == 1 ? 'Aberto' : 'Fechado' }}</p>
                                 </li>
                             </ul>
                         </div>
