@@ -1,4 +1,4 @@
-@extends('layouts.registers.clients')
+@extends('layouts.default.clients')
 
 @section('title', 'Clientes')
 

@@ -1,4 +1,4 @@
-@extends('layouts.screens.parts')
+@extends('layouts.default.parts')
 
 @section('title', 'Peças')
 

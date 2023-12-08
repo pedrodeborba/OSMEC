@@ -1,4 +1,4 @@
-@extends('layouts.registers.vehicles')
+@extends('layouts.default.vehicles')
 
 @section('title', 'Veículos')
 

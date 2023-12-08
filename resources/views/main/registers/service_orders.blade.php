@@ -1,4 +1,4 @@
-@extends('layouts.registers.service_orders')
+@extends('layouts.default.service_orders')
 
 @section('title', 'Ordens de Serviço')
 
@@ -88,6 +88,7 @@
                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse" name="status" value="0">
                         <label class="form-check-label" for="flexSwitchCheckReverse">Fechado</label>
                     </div>
+                    
                     <br>
 
                     <button type="submit">Adicionar</button>

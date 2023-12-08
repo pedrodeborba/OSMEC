@@ -1,4 +1,4 @@
-@extends('layouts.screens.clients')
+@extends('layouts.default.clients')
 
 @section('title', 'Clientes')
 

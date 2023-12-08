@@ -1,4 +1,4 @@
-@extends('layouts.registers.teams')
+@extends('layouts.default.teams')
 
 @section('title', 'Equipes')
 

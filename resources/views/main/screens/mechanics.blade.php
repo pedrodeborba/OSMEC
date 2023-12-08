@@ -1,4 +1,4 @@
-@extends('layouts.screens.mechanics')
+@extends('layouts.default.mechanics')
 
 @section('title', 'Mecânicos')
 

@@ -13,7 +13,7 @@ class AuthController extends Controller
 {
     public function getLogin()
     {
-        return view('main.auth.login');
+        return view('main.screens.login');
     }
     
     public function logout(Request $request)

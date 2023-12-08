@@ -1,4 +1,4 @@
-@extends('layouts.screens.service_orders')
+@extends('layouts.default.service_orders')
 
 @section('title', 'Ordens de Serviço')
 

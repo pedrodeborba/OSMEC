@@ -1,4 +1,4 @@
-@extends('layouts.registers.parts')
+@extends('layouts.default.parts')
 
 @section('title', 'Peças')
 
