@@ -10,6 +10,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MechanicController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\ServiceOrderController;
 
 // Default
 
@@ -23,7 +24,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.send');
 
 // Dashboard
 
-Route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('dashboard.create');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // Clients
 
@@ -90,3 +91,13 @@ Route::get('/parts/delete/{id}', [PartController::class, 'delete'])->name('parts
 Route::get('/parts/edit/{id}', [PartController::class, 'edit'])->name('parts.edit');
 
 Route::put('/parts/update/{id}', [PartController::class, 'update'])->name('parts.update');
+
+// Service Orders
+
+Route::get('/service_orders', [ServiceOrderController::class, 'index'])->name('service_orders.index');
+
+Route::get('/service_orders/add', [ServiceOrderController::class, 'create'])->name('service_orders.create');
+
+Route::post('/service_orders/send', [ServiceOrderController::class, 'send'])->name('service_orders.send');
+
+Route::get('/service_orders/delete/{id}', [ServiceOrderController::class, 'delete'])->name('service_orders.delete');

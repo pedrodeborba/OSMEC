@@ -1,6 +1,6 @@
 @extends('layouts.registers.teams')
 
-@section('title', 'Teams')
+@section('title', 'Equipes')
 
 @section('content')
 

@@ -11,7 +11,7 @@ class CreatePartServiceOrderTable extends Migration
     {
         Schema::create('part_service_order', function (Blueprint $table) {
             $table->unsignedBigInteger('part_id_part')->constrained('part')->onDelete('cascade');
-            $table->unsignedBigInteger('service_order_id_service_order')->constrained('ordem_servico')->onDelete('cascade');
+            $table->unsignedBigInteger('service_order_id_service_order')->constrained('service_order')->onDelete('cascade');
             $table->primary(['part_id_part', 'service_order_id_service_order']);
         });
     }

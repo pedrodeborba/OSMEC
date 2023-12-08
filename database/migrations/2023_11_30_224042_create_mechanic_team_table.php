@@ -10,7 +10,7 @@ class CreateMechanicTeamTable extends Migration
     public function up()
     {
         Schema::create('mechanic_team', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_mechanic_team');
             $table->string('name', 155);
             $table->text('function');
             $table->string('mechanics', 255);
