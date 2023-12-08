@@ -96,6 +96,9 @@ class ServiceOrderController extends Controller
     public function edit($id)
     {
         $service_order = ServiceOrder::findOrFail($id);
+        $service_order->entry_date = \Carbon\Carbon::parse($service_order->entry_date)->format('Y-m-d');
+        $service_order->exit_date = \Carbon\Carbon::parse($service_order->exit_date)->format('Y-m-d');
+
         $vehicles = Vehicle::pluck('license_plate', 'id_vehicle');
         $clients = Client::pluck('name', 'id_client');
         $teams = Team::pluck('name', 'id_mechanic_team');
@@ -103,6 +106,7 @@ class ServiceOrderController extends Controller
 
         return view('main.edits.service_orders', compact('service_order', 'vehicles', 'clients', 'teams', 'parts'));
     }
+
 
     public function update(Request $request, $id)
     {

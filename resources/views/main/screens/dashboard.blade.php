@@ -10,7 +10,7 @@
                 <div class="total-title">
                     <p id="totalSales">Total de vendas<p>
                     <br>
-                    <h3 id="totalSales">{{ $totalSales }}</h3>
+                    <h3 id="totalSales">R$  {{ $totalSales }}</h3>
                 </div>
                 <div class="total-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-cart4"
@@ -25,7 +25,7 @@
                 <div class="total-title">
                     <p id="totalSales">Total de gastos</p>
                     <br>
-                    <h3 id="totalExpenses">{{ $totalExpenses }}</h3>
+                    <h3 id="totalExpenses">R$ {{ $totalExpenses }}</h3>
                 </div>
                 <div class="total-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-coin"
@@ -42,7 +42,7 @@
                 <div class="total-title">
                     <p id="totalSales">total de ganhos</p>
                     <br>
-                    <h3 id="totalEarnings">{{ $totalEarnings }}</h3>
+                    <h3 id="totalEarnings">R$ {{ $totalEarnings }}</h3>
                 </div>
 
                 <div class="total-icon">

@@ -5,42 +5,66 @@
 @section('content')
 
 <section id="MainSection">
-    <div class="container d-flex justify-content-center align-items-center">
+    <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
 
                 <form action="{{ route('teams.send') }}" method="post" class="form" enctype="multipart/form-data">
                     @csrf
+                    <ul class="row" id="box">
+                        <li class="col-lg" id="inputs">
+                            <input id="input" type="text" name="name" placeholder="Nome da Equipe" required
+                                value="{{ old('name') }}">
+                        </li>
+                    </ul>
 
-                    <label for="name">Nome</label>
-                    <input type="text" name="name" placeholder="name da Equipe" required value="{{ old('name') }}">
+                    <ul class="row" id="box">
+                        <li class="col-lg" id="inputs">
+                            <input id="input" type="text" name="function" placeholder="Função da Equipe" required
+                                value="{{ old('function') }}">
+                        </li>
+                    </ul>
 
-                    <br>
+                    <ul class="row" id="box">
+                        <li>
+                            <label for="mechanics">Integrantes</label>
+                        </li>
+                        <li class="col-lg" id="inputs">
+                            <input id="input" type="text" name="mechanics" placeholder="EX: Pedro, João..." required
+                                value="{{ old('mechanics') }}">
+                        </li>
+                    </ul>
 
-                    <label for="function">Função</label>
-                    <input type="text" name="function" placeholder="Função da Equipe" required
-                        value="{{ old('function') }}">
+                    <ul class="row" id="box">
+                        <li class="col-lg" id="inputs">
+                            <label for="mechanic_person_id_person">Lider</label>
+                            <select name="mechanic_person_id_person" class="form-control" required>
+                                @foreach($persons as $person)
+                                <option value="{{ $person->name }}" {{ old('mechanic_person_id_person')==$person->name ?
+                                    'selected' : '' }}>{{ $person->name }}</option>
+                                @endforeach
+                            </select>
+                        </li>
+                    </ul>
 
-                    <br>
+                    <ul class="row" id="box">
+                        <li class="col-lg-6 text-center" id="inputs">
+                            @if($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                {{ $errors->first() }}
+                            </div>
+                            @endif
+                        </li>
+                        <li class="col-lg-6 text-end" id="inputs">
+                            <button type="submit" class="btn btn-lg text-white"
+                                style="background: #00C09E">Adicionar</button>
+                            <a href="{{ route('teams.index') }}"><button type="button"
+                                    class="btn btn-danger btn-lg text-white">Voltar</button></a>
+                        </li>
+                    </ul>
 
-                    <label for="mechanics">Mecânicos</label>
-                    <input type="text" name="mechanics" placeholder="EX: Pedro, João..." required
-                        value="{{ old('mechanics') }}">
 
-                    <br>
-
-                    <label for="mechanic_person_id_person">Lider</label>
-                    <select name="mechanic_person_id_person" style="width: 90%" required>
-                        @foreach($persons as $person)
-                        <option value="{{ $person->name }}" {{ old('mechanic_person_id_person')==$person->name ?
-                            'selected' : '' }}>{{ $person->name }}</option>
-                        @endforeach
-                    </select>
-
-                    <br>
-
-                    <button type="submit">Adicionar</button>
                 </form>
 
                 @if($errors->any())
