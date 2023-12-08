@@ -101,3 +101,7 @@ Route::get('/service_orders/add', [ServiceOrderController::class, 'create'])->na
 Route::post('/service_orders/send', [ServiceOrderController::class, 'send'])->name('service_orders.send');
 
 Route::get('/service_orders/delete/{id}', [ServiceOrderController::class, 'delete'])->name('service_orders.delete');
+
+Route::get('/service_orders/edit/{id}', [ServiceOrderController::class, 'edit'])->name('service_orders.edit');
+
+Route::put('/service_orders/update/{id}', [ServiceOrderController::class, 'update'])->name('service_orders.update');

@@ -10,9 +10,10 @@
             <div class="col-lg-2"></div>
             <div class="col-lg-6">
 
-                <form action="{{ route ('service_orders.send') }}" method="POST" class="form"
+                <form action="{{ route('service_orders.update', $service_order->id_service_order) }}" method="POST" class="form"
                     enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
                     <label for="client_id_client_fk">Cliente</label>
                     <select name="client_id_client_fk" class="form-control" required>
@@ -45,12 +46,12 @@
                     <br>
 
                     <label for="defect">Defeito</label>
-                    <input type="text" name="defect" placeholder="Defeito" required value="{{ old('defect') }}">
+                    <input type="text" name="defect" placeholder="Defeito" required value="{{ $service_order->defect }}">
 
                     <br>
 
                     <label for="solution">Solução</label>
-                    <input type="text" name="solution" placeholder="Solução" required value="{{ old('solution') }}">
+                    <input type="text" name="solution" placeholder="Solução" required value="{{ $service_order->solution }}">
 
                     <br>
 
@@ -66,25 +67,24 @@
 
                     <label for="work_price">Mão de Obra</label>
                     <input type="number" name="work_price" placeholder="Mão de Obra" required
-                        value="{{ old('work_price') }}">
+                        value="{{ $service_order->work_price }}">
 
                     <br>
 
                     <label for="total">Total</label>
-                    <input type="number" name="total" placeholder="Total" required value="{{ old('total') }}">
+                    <input type="number" name="total" placeholder="Total" required value="{{ $service_order->total }}">
 
                     <br>
 
                     <label for="entry_date">Data de emissão</label>
                     <input type="date" name="entry_date" placeholder="DD/MM/AAAA" required
-                        value="{{ old('entry_date') }}">
-
+                        value="{{ \Carbon\Carbon::parse($service_order->entry_date)->format('Y-m-d') }}">
 
                     <br>
 
                     <label for="exit_date">Data de emissão</label>
                     <input type="date" name="exit_date" placeholder="DD/MM/AAAA" required
-                        value="{{ old('exit_date') }}">
+                        value="{{ \Carbon\Carbon::parse($service_order->exit_date)->format('Y-m-d') }}">
 
                     <br>
 
