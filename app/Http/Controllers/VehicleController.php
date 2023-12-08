@@ -26,10 +26,12 @@ class VehicleController extends Controller {
         $request->validate([
             'name' => 'required|string|max:255',
             'color' => 'required|string|max:255',
-            'license_plate' => 'required|string|max:255',
+            'license_plate' => 'required|string|max:8|unique:vehicle,license_plate',
             'model' => 'required|string|max:255',
             'mileage' => 'required|numeric',
             'client_cpf' => 'required|string|max:255',
+        ], [
+            'license_plate' => 'Placa já cadastrada ou inexiste.',
         ]);
 
         $client = Client::firstOrCreate(['cpf' => $request->input('client_cpf')]);
@@ -66,12 +68,14 @@ class VehicleController extends Controller {
 
     public function update(Request $request, $id) {
         $request->validate([
-            'name' => 'required',
-            'color' => 'required',
-            'license_plate' => 'required',
-            'model' => 'required',
+            'name' => 'required|string|max:255',
+            'color' => 'required|string|max:255',
+            'license_plate' => 'required|string|max:8|unique:vehicle,license_plate',
+            'model' => 'required|string|max:255',
             'mileage' => 'required|numeric',
             'client_cpf' => 'required|string|max:255',
+        ], [
+            'license_plate' => 'Placa já cadastrada ou inexiste.',
         ]);
     
         $vehicle = Vehicle::where('id_vehicle', $id)->first();
