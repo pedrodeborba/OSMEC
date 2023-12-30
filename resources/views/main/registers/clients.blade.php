@@ -33,11 +33,11 @@
 
                     <ul class="row" id="box">
                         <li class="col-lg-6" id="inputs">
-                            <input id="input" class="form-control" type="text" name="phone" placeholder="Telefone"
+                            <input id="input" class="form-control" type="text" name="address" placeholder="Endereço"
                                 required>
                         </li>
                         <li class="col-lg-6" id="inputs">
-                            <input id="input" class="form-control" type="text" name="cellphone" placeholder="Celular"
+                            <input id="input" class="form-control" type="text" name="phone" placeholder="Telefone"
                                 required>
                         </li>
                     </ul>

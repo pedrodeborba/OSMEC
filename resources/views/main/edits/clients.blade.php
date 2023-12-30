@@ -33,10 +33,10 @@
 
                     <ul class="row" id="box">
                         <li class="col-lg-6" id="inputs">
-                            <input id="input" class="form-control" type="text" name="phone" placeholder="Telefone" value="{{ $client->address }}" required>
+                            <input id="input" class="form-control" type="text" name="address" placeholder="Telefone" value="{{ $client->address }}" required>
                         </li>
                         <li class="col-lg-6" id="inputs">
-                            <input id="input" class="form-control" type="text" name="cellphone" placeholder="Celular" value="{{ $client->phone }}" equired>
+                            <input id="input" class="form-control" type="text" name="phone" placeholder="Celular" value="{{ $client->phone }}" equired>
                         </li>
                     </ul>
 

@@ -21,7 +21,7 @@
 
                 <br>
 
-                <button id="send" type="submit">Login</button>
+                <button id="send" type="submit">Entrar</button>
             </form>
             @if($errors->any())
             <div style="color: red;">
